@@ -19,11 +19,17 @@ import rx.schedulers.Schedulers;
 
 /**
  * Implementation of App Widget functionality.
+ *
  */
 public class CurrentExchangeRateWidget extends AppWidgetProvider {
     private NetworkAPI networkAPI;
     private DataForShow data;
 
+    /**
+     * Method that update widget when Internet connection on
+     * @param context
+     * @param intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         AppWidgetManager appwidget = AppWidgetManager.getInstance(context);
@@ -35,7 +41,12 @@ public class CurrentExchangeRateWidget extends AppWidgetProvider {
 
     }
 
-
+    /**
+     *  Method to load Exchange rate data
+     * @param cont
+     * @param ids
+     * @param appman
+     */
     public void loadCurrentRate(Context cont, int[] ids, AppWidgetManager appman) {
         final Context context = cont;
         final int[] appWidgetIds = ids;
@@ -67,6 +78,12 @@ public class CurrentExchangeRateWidget extends AppWidgetProvider {
         });
     }
 
+    /**
+     * Method to set a new received data
+     * @param context
+     * @param appWidgetManager
+     * @param appWidgetId
+     */
       void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
           RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.current_exchange_rate_widget);
           views.setTextViewText(R.id.widget_text_buy1,data.getBuy().get(0)+"");
