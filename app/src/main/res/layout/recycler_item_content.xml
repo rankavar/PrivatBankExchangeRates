@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/expandeble_size_header_closed"
+        android:background="@color/colorStandartBackground"
+        android:id="@+id/relateivelayoutheader"
+        android:paddingLeft="@dimen/expandeble_side_margin"
+        android:paddingRight="@dimen/expandeble_side_margin">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="16sp"
+                tools:text="Title test text"
+                android:textStyle="bold"
+                android:id="@+id/header_section_title"
+                android:textColor="@color/colorHeaderExpand"/>
+
+            <ImageView
+                android:id="@+id/imgArrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_arrow_down"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDarkStandartBackground"
+        android:layout_below="@id/relateivelayoutheader">
+        <com.github.aakira.expandablelayout.ExpandableLinearLayout
+            android:id="@+id/expandableLayout"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorStandartBackground"
+            app:ael_duration="200"
+            app:ael_expanded="false"
+            android:paddingLeft="@dimen/expandeble_side_margin"
+            android:paddingRight="@dimen/expandeble_side_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/for_buy_text"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/text_size"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/for_sale_text"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/text_size"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/text_content_sale"
+                        tools:text = "Hii"
+                        android:textSize="@dimen/text_size"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/text_content_buy"
+                        tools:text = "Hii"
+                        android:textSize="@dimen/text_size"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

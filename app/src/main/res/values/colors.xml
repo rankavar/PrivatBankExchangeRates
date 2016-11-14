@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9E9E9E</color>
+    <color name="colorPrimaryDark">#616161</color>
+    <color name="colorAccent">#9C27B0</color>
+    <color name="colorStandartBackground">#f9f9f9</color>
+    <color name="colorDarkStandartBackground">#ededed</color>
+    <color name="colorTopBlock">#d9000000</color>
+    <color name="colorHeaderExpand">#949494</color>
+    <color name="widgetBackgroundColor">#a8e6e6e6</color>
+    <color name="widgetHeaderColor">#2eaf18</color>
+    <color name="widgetTextColor">#535353</color>
+    <color name="widgetSpecialColor">#00535353</color>
+
+</resources>
