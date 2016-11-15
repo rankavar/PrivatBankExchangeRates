@@ -33,14 +33,12 @@ import projects.rankavar.privatbankexchangerates.myAdapter.HeaderRecyclerButtons
 
 public class MainActivity extends AppCompatActivity implements HeaderRecyclerButtonsClick {
 
-    private static final String EXTRA_RQ = "EXTRA_RQ";
-    private static final String EXTRA_SRQ = "EXTRA_SRQ";
+    //variables for saving information request and chosen date
+    private static final String ARCHIVERQ = "ARCHIVERQ";
+    private static final String TODAYRQ = "TODAYRQ";
     private static final String DAY = "DAY";
     private static final String MONTH = "MONTH";
     private static final String YEAR = "YEAR";
-    private static final String ROTATE = "ROTATE";
-    private static final String SHOW_RESULTS = "RESULTS";
-    private Activity activity ;
 
     private int myYear = 2015;
     private int myMonth = 10;
@@ -48,11 +46,12 @@ public class MainActivity extends AppCompatActivity implements HeaderRecyclerBut
     private int checkDate ;
     private boolean archiveRequestInWork = false;
     private boolean todayRequestInWork = false;
-    private boolean isRotate = false;
-    private boolean isResults = false;
-    private boolean isNew = false;
-    private int currentVersionOs ;
 
+    private boolean isNew = false;
+
+//    private boolean isRotate = false;
+//    private boolean isResults = false;
+//    private int currentVersionOs ;
 
     private String chosenDate = myDay+"."+myMonth+"."+myYear;
     private RecyclerView recyclerView;
@@ -72,18 +71,18 @@ public class MainActivity extends AppCompatActivity implements HeaderRecyclerBut
         networkAPI = ((NetworkAplication)getApplication()).getNetworkAPI();
         controller = new Controller(this,networkAPI);
         if(savedInstanceState!=null){
-            archiveRequestInWork = savedInstanceState.getBoolean(EXTRA_RQ);
-            todayRequestInWork = savedInstanceState.getBoolean(EXTRA_SRQ);
+            archiveRequestInWork = savedInstanceState.getBoolean(ARCHIVERQ);
+            todayRequestInWork = savedInstanceState.getBoolean(TODAYRQ);
             myDay = savedInstanceState.getInt(DAY);
             myMonth = savedInstanceState.getInt(MONTH);
             myYear = savedInstanceState.getInt(YEAR);
-            isRotate = savedInstanceState.getBoolean(ROTATE);
-            isResults = savedInstanceState.getBoolean(SHOW_RESULTS);
+//            isRotate = savedInstanceState.getBoolean(ROTATE);
+//            isResults = savedInstanceState.getBoolean(SHOW_RESULTS);
         }
         ButterKnife.bind(this);
-        currentVersionOs = Build.VERSION.SDK_INT;
+ //       currentVersionOs = Build.VERSION.SDK_INT;
         cont = this;
-        activity = this;
+        Activity activity = this;
         recyclerView = (RecyclerView)findViewById(R.id.recycler);
         expandAdapter = new ExpandebleRates(new DataForShow(),activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -93,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements HeaderRecyclerBut
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(EXTRA_SRQ, todayRequestInWork);
-        outState.putBoolean(EXTRA_RQ,archiveRequestInWork);
+        outState.putBoolean(TODAYRQ, todayRequestInWork);
+        outState.putBoolean(ARCHIVERQ,archiveRequestInWork);
         outState.putInt(DAY,myDay);
         outState.putInt(MONTH,myMonth);
         outState.putInt(YEAR,myYear);

@@ -11,22 +11,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import projects.rankavar.privatbankexchangerates.R;
 import projects.rankavar.privatbankexchangerates.data.DataForShow;
 
 
-/**
+/**Adapter for recycler view
  * Created by furch on 22.10.2016.
  */
 public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHolder> {
 
     private DataForShow data;
     private Context context;
+    //interface-listener for controlling clicks from recyclerviews head elements in main activity
     private HeaderRecyclerButtonsClick headerInterface;
     private String text;
 
@@ -43,8 +40,10 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
     public int getItemViewType(int position) {
         int itemViewtype;
         if(position ==0){
+            // view type of header element
             itemViewtype = 0;
         }else{
+            // view type for other elements
             itemViewtype = 1;
         }
         return itemViewtype;
@@ -108,6 +107,7 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
                         onClickButton(holder,position);
                     }
                 });
+                // change title layout in expandable items
                 if(position == 1){
                     holder.expandableLinearLayout.setExpanded(true);
                     holder.rotation = !holder.rotation;
@@ -132,6 +132,8 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
         }
         return size+1;
     }
+
+    // open expandable contents
     private void onClickButton(final ExpandebleRates.ViewHolder holder,int position ){
         holder.rotation = !holder.rotation;
         holder.imgview.setRotation(holder.rotation ? 180f : 0f);
