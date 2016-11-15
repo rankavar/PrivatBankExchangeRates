@@ -14,12 +14,15 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
+ * Class for making requests to PrivatBank API
  * Created by furch on 18.10.2016.
  */
 public class NetworkAPI {
 
     private static String baseurl = "https://api.privatbank.ua/p24api/";
+    // Interface with method to downloading data
     private NetworkData networkPrivatData;
+    // Cache for requests
     private LruCache<Class<?>, Observable<?>> apiObservables;
 
 

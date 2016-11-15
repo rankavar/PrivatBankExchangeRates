@@ -6,7 +6,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import projects.rankavar.privatbankexchangerates.API.NetworkAPI;
-import projects.rankavar.privatbankexchangerates.ArchiveRatesView;
+import projects.rankavar.privatbankexchangerates.MainActivity;
 import projects.rankavar.privatbankexchangerates.R;
 import projects.rankavar.privatbankexchangerates.data.DataForShow;
 import projects.rankavar.privatbankexchangerates.data.ExchangeRate;
@@ -21,22 +21,22 @@ import rx.Subscription;
  */
 public class Controller implements ControllerInteractor {
 
-    private ArchiveRatesView archiveRatesView;
+    private MainActivity mainActivity;
     private NetworkAPI networkAPI;
     private Subscription subscription;
     private Context context;
 
-    public Controller(ArchiveRatesView view, NetworkAPI api){
-        this.archiveRatesView = view;
+    public Controller(MainActivity view, NetworkAPI api){
+        this.mainActivity = view;
         this.networkAPI = api;
-        context = archiveRatesView.getApplicationContext();
+        context = mainActivity.getApplicationContext();
     }
 
 
     @Override
     public void loadArchiveRate(String date) {
         if(networkAPI.isOnline(context)){
-            archiveRatesView.showRqInProcess();
+            mainActivity.showRqInProcess();
             Observable<ListExchangeRates> informationObservable = (Observable<ListExchangeRates>)
                     networkAPI.getPreparedObservable(networkAPI.getApi().privateArchiveRates(date),ExchangeRate.class,true,true);
             subscription = informationObservable.subscribe(new Observer<ListExchangeRates>() {
@@ -47,7 +47,7 @@ public class Controller implements ControllerInteractor {
 
                 @Override
                 public void onError(Throwable e) {
-                    archiveRatesView.showRqFailed(e);
+                    mainActivity.showRqFailed(e);
 
                 }
 
@@ -70,7 +70,7 @@ public class Controller implements ControllerInteractor {
                         }
                     }
 
-                    archiveRatesView.showResults(data);
+                    mainActivity.showResults(data);
 
 
                 }
@@ -92,7 +92,7 @@ public class Controller implements ControllerInteractor {
     @Override
     public void loadCurrentRate() {
         if(networkAPI.isOnline(context)){
-            archiveRatesView.showRqInProcess();
+            mainActivity.showRqInProcess();
             Observable<List<ExchangeSimpleRate>> informationObservable = (Observable<List<ExchangeSimpleRate>>)
                     networkAPI.getPreparedObservable(networkAPI.getApi().privateCurrentRates(),ExchangeSimpleRate.class,true,true);
             subscription = informationObservable.subscribe(new Observer<List<ExchangeSimpleRate>>() {
@@ -103,7 +103,7 @@ public class Controller implements ControllerInteractor {
 
                 @Override
                 public void onError(Throwable e) {
-                    archiveRatesView.showRqFailed(e);
+                    mainActivity.showRqFailed(e);
 
                 }
 
@@ -115,7 +115,7 @@ public class Controller implements ControllerInteractor {
                         data.addBuy(Double.valueOf(information.get(i).getBuy()));
                         data.addSale(Double.valueOf(information.get(i).getSale()));
                     }
-                    archiveRatesView.showResults(data);
+                    mainActivity.showResults(data);
 
 
                 }

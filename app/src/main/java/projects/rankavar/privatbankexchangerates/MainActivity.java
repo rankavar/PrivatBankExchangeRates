@@ -31,7 +31,7 @@ import projects.rankavar.privatbankexchangerates.data.DataForShow;
 import projects.rankavar.privatbankexchangerates.myAdapter.ExpandebleRates;
 import projects.rankavar.privatbankexchangerates.myAdapter.HeaderRecyclerButtonsClick;
 
-public class ArchiveRatesView extends AppCompatActivity implements HeaderRecyclerButtonsClick {
+public class MainActivity extends AppCompatActivity implements HeaderRecyclerButtonsClick {
 
     private static final String EXTRA_RQ = "EXTRA_RQ";
     private static final String EXTRA_SRQ = "EXTRA_SRQ";
