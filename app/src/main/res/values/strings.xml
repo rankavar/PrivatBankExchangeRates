@@ -15,4 +15,5 @@
     <string name="hint_button_toast">Данное приложение позволяет узнать наличный курс валют Приватбанка.</string>
     <string name="negative_dialog_button">Отмена</string>
     <string name="positive_dialog_button">Принять</string>
+    <string name="error_null_data">Отсутствуют данные в банке</string>
 </resources>

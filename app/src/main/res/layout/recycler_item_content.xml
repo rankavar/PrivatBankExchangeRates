@@ -90,14 +90,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:id="@+id/text_content_sale"
+                        android:id="@+id/text_content_buy"
                         tools:text = "Hii"
                         android:textSize="@dimen/text_size"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:id="@+id/text_content_buy"
+                        android:id="@+id/text_content_sale"
                         tools:text = "Hii"
                         android:textSize="@dimen/text_size"/>
 
