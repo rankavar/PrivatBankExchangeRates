@@ -4,7 +4,7 @@
     <string name="for_buy_text">Покупка</string>
     <string name="get_date_button">Выбрать дату</string>
     <string name="get_today_button">Курс сегодня</string>
-    <string name="header_activity_text">Информация о наличных курсах валют ПриватБанка на выбранную дату.
+    <string name="header_activitytext">Информация о наличных курсах валют ПриватБанка на выбранную дату.
         Архив хранит данные за последние 4 года</string>
     <string name="currency">Валюта</string>
     <string name="header_widget">Курс обмена ПБ</string>
@@ -16,4 +16,8 @@
     <string name="negative_dialog_button">Отмена</string>
     <string name="positive_dialog_button">Принять</string>
     <string name="error_null_data">Отсутствуют данные в банке</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
 </resources>
