@@ -171,10 +171,16 @@ public class MainActivity extends AppCompatActivity implements HeaderRecyclerBut
    //     isResults = true;
 
         expandAdapter.notifyDataSetChanged();
-        if(archiveRequestInWork){
-            expandAdapter.setNewData(data,cont.getString(R.string.app_name)+" "+myDay+"."+myMonth+"."+myYear);
-        }else{
-            expandAdapter.setNewData(data,cont.getString(R.string.exchange_rate_today));
+        if(data.getCurrency().size()==0){
+            Toast.makeText(cont,cont.getString(R.string.error_null_data),Toast.LENGTH_SHORT).show();
+        }else {
+
+
+            if (archiveRequestInWork) {
+                expandAdapter.setNewData(data, cont.getString(R.string.app_name) + " " + myDay + "." + (myMonth + 1) + "." + myYear);
+            } else {
+                expandAdapter.setNewData(data, cont.getString(R.string.exchange_rate_today));
+            }
         }
     //    isRotate = false;
 
@@ -214,17 +220,16 @@ public class MainActivity extends AppCompatActivity implements HeaderRecyclerBut
 //                }
 //            }
 //        };
-        final DatePickerDialog dpd = new DatePickerDialog(cont,R.style.DialogTheme,null,myYear,myMonth,myDay);
+        final Calendar c = Calendar.getInstance();
+        final DatePickerDialog dpd = new DatePickerDialog(cont,R.style.DialogTheme,null,c.get(Calendar.YEAR)-1,c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH));
         DialogInterface.OnClickListener positivelistener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 myYear = dpd.getDatePicker().getYear();
                 myMonth = dpd.getDatePicker().getMonth();
                 myDay = dpd.getDatePicker().getDayOfMonth();
-                DateFormat sdf = new SimpleDateFormat("yyyy");
-                String date = sdf.format(new Date());
-                checkDate = Integer.valueOf(date)- myYear;
-                if(checkDate>4){
+                final Calendar c = Calendar.getInstance();
+                if(myYear-c.get(Calendar.YEAR)>4){
                     Toast.makeText(cont,"Выбрана неверная дата",Toast.LENGTH_SHORT).show();
                     getDate();
                 }else {
@@ -245,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements HeaderRecyclerBut
                 dpd.dismiss();
             }
         });
-        final Calendar c = Calendar.getInstance();
+
         c.set(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH)-5);
         dpd.getDatePicker().setMaxDate(c.getTimeInMillis());
         c.set(c.get(Calendar.YEAR) - 4,c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH)+5);
