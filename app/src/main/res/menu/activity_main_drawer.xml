@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_today"
+            android:title="@string/text_nav_today"
+            android:icon="@drawable/nav_dollar">
+        </item>
+        <item
+            android:id="@+id/nav_archive"
+            android:icon="@drawable/nav_archive"
+            android:title="@string/text_nav_archive">
+        </item>
+        <item
+            android:id="@+id/nav_charts"
+            android:icon="@drawable/nav_charts"
+            android:title="@string/text_nav_charts"
+            />
+    </group>
+
+    <group android:id="@+id/group2">
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/nav_settings"
+                android:title="@string/text_nav_settings" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/nav_share"
+                android:title="@string/text_nav_share"
+                 />
+    </group>
+
+</menu>

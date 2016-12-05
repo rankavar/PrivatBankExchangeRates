@@ -1,4 +1,4 @@
-package projects.rankavar.privatbankexchangerates.data;
+package projects.rankavar.privatbankexchangerates.data.pojos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

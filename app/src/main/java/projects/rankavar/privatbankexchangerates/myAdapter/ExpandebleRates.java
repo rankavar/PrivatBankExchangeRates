@@ -23,18 +23,11 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
 
     private DataForShow data;
     private Context context;
-    //interface-listener for controlling clicks from recyclerviews head elements in main activity
-    private HeaderRecyclerButtonsClick headerInterface;
     private String text;
 
-    public ExpandebleRates(final DataForShow d,Activity act){
+    public ExpandebleRates(final DataForShow d){
         this.data = d;
-        this.headerInterface = (HeaderRecyclerButtonsClick)act;
 
-    }
-    public void setNewData(DataForShow newData,String date){
-        data = newData;
-        text = date;
     }
     @Override
     public int getItemViewType(int position) {
@@ -73,18 +66,6 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
         int adapterViewType = getItemViewType(holder.getAdapterPosition());
         switch (adapterViewType){
             case 0:{
-                holder.getTodayRate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        headerInterface.getTodayRateButton();
-                    }
-                });
-                holder.getArchiveRate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        headerInterface.getArchiveRateButton();
-                    }
-                });
                 if(text!=null){
                     holder.chosenTextView.setVisibility(View.VISIBLE);
                     holder.chosenTextView.setText(text);
@@ -164,8 +145,6 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
         RelativeLayout relativeLayout;
         ExpandableLinearLayout expandableLinearLayout;
         ImageView imgview;
-        Button getTodayRate;
-        Button getArchiveRate;
         TextView chosenTextView;
         public boolean rotation = false;
 
@@ -174,8 +153,6 @@ public class ExpandebleRates extends RecyclerView.Adapter<ExpandebleRates.ViewHo
             super(v);
             switch (viewType){
                 case 0:{
-                    getTodayRate = (Button)v.findViewById(R.id.getTodayRate);
-                    getArchiveRate = (Button)v.findViewById(R.id.getDateButton);
                     chosenTextView = (TextView)v.findViewById(R.id.chosen_date);
                     break;
                 }

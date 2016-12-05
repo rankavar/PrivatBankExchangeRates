@@ -1,4 +1,4 @@
-package projects.rankavar.privatbankexchangerates.data;
+package projects.rankavar.privatbankexchangerates.data.pojos;
 
 /**
  * Created by furch on 15.10.2016.

@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projects.rankavar.privatbankexchangerates.fragments.TodayFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerViewToday"
+        android:background="@color/colorDarkStandartBackground"
+        android:visibility="visible"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/today_null_text_today"
+        android:text="@string/text_null_rates"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:gravity="center_vertical|center_horizontal" />
+
+</FrameLayout>

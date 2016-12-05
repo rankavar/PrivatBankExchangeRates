@@ -1,109 +1,50 @@
 package projects.rankavar.privatbankexchangerates.controller;
 
+
 import android.content.Context;
 import android.widget.Toast;
 
 import java.util.List;
 
 import projects.rankavar.privatbankexchangerates.API.NetworkAPI;
-import projects.rankavar.privatbankexchangerates.MainActivity;
 import projects.rankavar.privatbankexchangerates.R;
 import projects.rankavar.privatbankexchangerates.data.DataForShow;
-import projects.rankavar.privatbankexchangerates.data.ExchangeRate;
-import projects.rankavar.privatbankexchangerates.data.ExchangeSimpleRate;
-import projects.rankavar.privatbankexchangerates.data.ListExchangeRates;
+import projects.rankavar.privatbankexchangerates.data.pojos.ExchangeSimpleRate;
+import projects.rankavar.privatbankexchangerates.fragments.ArchiveFragment;
+import projects.rankavar.privatbankexchangerates.fragments.TodayFragment;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by furch on 18.10.2016.
  */
-public class Controller implements ControllerInteractor {
-
-    private MainActivity mainActivity;
-    private NetworkAPI networkAPI;
-    private Subscription subscription;
+public class Controller implements ControllerInteractor{
     private Context context;
-
-    public Controller(MainActivity view, NetworkAPI api){
-        this.mainActivity = view;
-        this.networkAPI = api;
-        context = mainActivity.getApplicationContext();
+    private NetworkAPI networkAPI;
+    private TodayFragment todayFragment;
+    private ArchiveFragment
+    public Controller(Context context) {
+        this.context = context;
+        networkAPI = new NetworkAPI();
     }
 
-
     @Override
-    public void loadArchiveRate(String date) {
+    public void getTodayRates() {
         if(networkAPI.isOnline(context)){
-            mainActivity.showRqInProcess();
-            Observable<ListExchangeRates> informationObservable = (Observable<ListExchangeRates>)
-                    networkAPI.getPreparedObservable(networkAPI.getApi().privateArchiveRates(date),ExchangeRate.class,true,true);
-            subscription = informationObservable.subscribe(new Observer<ListExchangeRates>() {
-                @Override
-                public void onCompleted() {
-
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    mainActivity.showRqFailed(e);
-
-                }
-
-                @Override
-                public void onNext(ListExchangeRates list) {
-                    List <ExchangeRate> information = list.getExchangeRate();
-                    DataForShow data = new DataForShow();
-                    for(int i = 0;i<information.size();i++){
-                        data.addCurrency(information.get(i).getCurrency());
-                        if(information.get(i).getPurchaseRate()!=null){
-                            data.addBuy(information.get(i).getPurchaseRate());
-                        }else {
-                            data.addBuy(information.get(i).getPurchaseRateNB());
-                        }
-
-                        if(information.get(i).getSaleRate()!=null){
-                            data.addSale(information.get(i).getSaleRate());
-                        }else {
-                            data.addSale(information.get(i).getSaleRateNB());
-                        }
-                    }
-
-                    mainActivity.showResults(data);
-
-
-                }
-            });
-        }else{
-            Toast.makeText(context,context.getString(R.string.error_internet_connection),Toast.LENGTH_SHORT).show();
-        }
-
-
-    }
-
-    @Override
-    public void unSubscribe() {
-        if(subscription!=null && !subscription.isUnsubscribed()){
-            subscription.unsubscribe();
-        }
-    }
-
-    @Override
-    public void loadCurrentRate() {
-        if(networkAPI.isOnline(context)){
-            mainActivity.showRqInProcess();
             Observable<List<ExchangeSimpleRate>> informationObservable = (Observable<List<ExchangeSimpleRate>>)
-                    networkAPI.getPreparedObservable(networkAPI.getApi().privateCurrentRates(),ExchangeSimpleRate.class,true,true);
-            subscription = informationObservable.subscribe(new Observer<List<ExchangeSimpleRate>>() {
+                    networkAPI.getApi().privateCurrentRates()
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread());
+            Subscription subscription = informationObservable.subscribe(new Observer<List<ExchangeSimpleRate>>() {
                 @Override
                 public void onCompleted() {
-
                 }
 
                 @Override
                 public void onError(Throwable e) {
-                    mainActivity.showRqFailed(e);
 
                 }
 
@@ -115,9 +56,6 @@ public class Controller implements ControllerInteractor {
                         data.addBuy(Double.valueOf(information.get(i).getBuy()));
                         data.addSale(Double.valueOf(information.get(i).getSale()));
                     }
-                    mainActivity.showResults(data);
-
-
                 }
             });
         }else{
@@ -125,5 +63,35 @@ public class Controller implements ControllerInteractor {
         }
 
 
+    }
+
+
+    @Override
+    public void getArchiveRates() {
+
+    }
+
+    @Override
+    public void getChartsData() {
+
+    }
+
+    @Override
+    public void setTodayFragment() {
+
+    }
+
+    @Override
+    public void setArchiveFragment() {
+
+    }
+
+    @Override
+    public void setChartsFragment() {
+
+    }
+
+    private void showTodayRates(){
+        if()
     }
 }

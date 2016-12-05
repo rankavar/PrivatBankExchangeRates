@@ -1,10 +1,13 @@
 package projects.rankavar.privatbankexchangerates.controller;
 
 /**
- * Created by furch on 18.10.2016.
+ * Created by furch on 05.12.2016.
  */
 public interface ControllerInteractor {
-    void loadArchiveRate(String date);
-    void unSubscribe();
-    void loadCurrentRate();
+    void getTodayRates();
+    void getArchiveRates();
+    void getChartsData();
+    void setTodayFragment();
+    void setArchiveFragment();
+    void setChartsFragment();
 }

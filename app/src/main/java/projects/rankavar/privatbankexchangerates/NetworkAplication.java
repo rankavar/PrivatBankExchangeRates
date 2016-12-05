@@ -3,19 +3,21 @@ package projects.rankavar.privatbankexchangerates;
 import android.app.Application;
 
 import projects.rankavar.privatbankexchangerates.API.NetworkAPI;
+import projects.rankavar.privatbankexchangerates.controller.Controller;
+import projects.rankavar.privatbankexchangerates.controller.ControllerInteractor;
 
 /**
  * Created by furch on 18.10.2016.
  */
 public class NetworkAplication extends Application {
-    private NetworkAPI networkAPI;
 
+    private ControllerInteractor controllerInteractor;
     @Override
     public void onCreate() {
         super.onCreate();
-        networkAPI = new NetworkAPI();
+        controllerInteractor = new Controller(getApplicationContext());
     }
-    public NetworkAPI getNetworkAPI(){
-        return networkAPI;
+    public ControllerInteractor getControllerInteractor(){
+        return controllerInteractor;
     }
 }

@@ -25,7 +25,6 @@
                 android:textStyle="bold"
                 android:id="@+id/header_section_title"
                 android:textColor="@color/colorHeaderExpand"/>
-
             <ImageView
                 android:id="@+id/imgArrow"
                 android:layout_width="24dp"

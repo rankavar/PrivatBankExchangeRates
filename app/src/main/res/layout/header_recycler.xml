@@ -15,37 +15,7 @@
             android:paddingLeft="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_vertical_margin"
             >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/header_activity_text"
-                android:textSize="16sp"
-                android:textColor="@color/colorTopBlock"
-                android:padding="10dp"
-                android:gravity="start" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/get_today_button"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/getTodayRate"
-                    android:theme="@style/RaisedButton"
-                    android:layout_weight="1"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/getDateButton"
-                    android:text="@string/get_date_button"
-                    android:layout_gravity="center_horizontal"
-                    android:theme="@style/RaisedButton"
-                    android:layout_weight="1"/>
 
-            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

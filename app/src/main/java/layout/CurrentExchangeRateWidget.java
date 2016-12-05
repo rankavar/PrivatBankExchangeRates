@@ -10,7 +10,7 @@ import java.util.List;
 import projects.rankavar.privatbankexchangerates.API.NetworkAPI;
 import projects.rankavar.privatbankexchangerates.R;
 import projects.rankavar.privatbankexchangerates.data.DataForShow;
-import projects.rankavar.privatbankexchangerates.data.ExchangeSimpleRate;
+import projects.rankavar.privatbankexchangerates.data.pojos.ExchangeSimpleRate;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
@@ -118,6 +118,8 @@ public class CurrentExchangeRateWidget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
     }
+
+
 
 }
 

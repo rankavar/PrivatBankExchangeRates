@@ -22,17 +22,11 @@ public class NetworkAPI {
     private static String baseurl = "https://api.privatbank.ua/p24api/";
     // Interface with method to downloading data
     private NetworkData networkPrivatData;
-    // Cache for requests
-    private LruCache<Class<?>, Observable<?>> apiObservables;
-
-
     public NetworkAPI(){
         this(baseurl);
     }
 
     public NetworkAPI(String baseurl){
-        apiObservables = new LruCache<>(10);
-
         HttpLoggingInterceptor log = new HttpLoggingInterceptor();
         log.setLevel(HttpLoggingInterceptor.Level.BASIC);
         OkHttpClient http = new OkHttpClient.Builder()
@@ -51,31 +45,7 @@ public class NetworkAPI {
         return networkPrivatData;
     }
 
-    public void clearCache(){
-        apiObservables.evictAll();
-    }
 
-    public Observable<?> getPreparedObservable(Observable<?> unPreparedObservable,Class<?> clazz,boolean cacheObservable,boolean useCache){
-        Observable<?> preparedObservable = null;
-
-        if(useCache){
-            preparedObservable = apiObservables.get(clazz);
-        }
-
-        if(preparedObservable!=null){
-            return preparedObservable;
-        }
-
-        preparedObservable = unPreparedObservable.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread());
-
-        if(cacheObservable){
-            preparedObservable = preparedObservable.cache();
-            apiObservables.put(clazz,preparedObservable);
-        }
-
-        return preparedObservable;
-    }
     public  boolean isOnline(Context context)
     {
         ConnectivityManager cm =

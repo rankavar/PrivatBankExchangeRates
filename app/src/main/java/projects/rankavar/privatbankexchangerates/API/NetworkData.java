@@ -5,8 +5,8 @@ package projects.rankavar.privatbankexchangerates.API;
  */
 import java.util.List;
 
-import projects.rankavar.privatbankexchangerates.data.ExchangeSimpleRate;
-import projects.rankavar.privatbankexchangerates.data.ListExchangeRates;
+import projects.rankavar.privatbankexchangerates.data.pojos.ExchangeSimpleRate;
+import projects.rankavar.privatbankexchangerates.data.pojos.ListExchangeRates;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;

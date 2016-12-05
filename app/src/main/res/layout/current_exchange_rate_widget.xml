@@ -6,16 +6,6 @@
     android:background="@color/widgetSpecialColor"
     android:padding="@dimen/widget_margin"
     android:gravity="center_horizontal">
-    <!--<TextView-->
-        <!--android:layout_gravity="center_horizontal"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/header_widget"-->
-        <!--android:textColor="@color/widgetHeaderColor"-->
-        <!--android:textSize="@dimen/header_text_widget_size"-->
-        <!--android:paddingBottom="4dp"/>-->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,21 +30,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/for_sale_text"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/widgetTextColor"
-                android:textSize="@dimen/titles_text_widget_size"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/for_buy_text"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 android:textColor="@color/widgetTextColor"
                 android:textSize="@dimen/titles_text_widget_size"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/for_sale_text"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/widgetTextColor"
+                android:textSize="@dimen/titles_text_widget_size"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,7 +62,7 @@
                 android:textColor="@color/widgetTextColor"
                 />
             <TextView
-                android:id="@+id/widget_text_sale1"
+                android:id="@+id/widget_text_buy1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -81,7 +71,7 @@
                 android:textSize="@dimen/main_text_widget_size"
                 android:textColor="@color/widgetTextColor"/>
             <TextView
-                android:id="@+id/widget_text_buy1"
+                android:id="@+id/widget_text_sale1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -105,15 +95,6 @@
                 android:textSize="@dimen/main_text_widget_size"
                 android:textColor="@color/widgetTextColor"/>
             <TextView
-                android:id="@+id/widget_text_sale2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/widget_preview"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/main_text_widget_size"
-                android:textColor="@color/widgetTextColor"/>
-            <TextView
                 android:id="@+id/widget_text_buy2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,6 +104,15 @@
                 android:textSize="@dimen/main_text_widget_size"
                 android:textColor="@color/widgetTextColor"
                 />
+            <TextView
+                android:id="@+id/widget_text_sale2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/widget_preview"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/main_text_widget_size"
+                android:textColor="@color/widgetTextColor"/>
 
         </LinearLayout>
         <LinearLayout
@@ -140,7 +130,7 @@
                 android:textColor="@color/widgetTextColor"
                 />
             <TextView
-                android:id="@+id/widget_text_sale3"
+                android:id="@+id/widget_text_buy3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -150,7 +140,7 @@
                 android:textColor="@color/widgetTextColor"
                 />
             <TextView
-                android:id="@+id/widget_text_buy3"
+                android:id="@+id/widget_text_sale3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
